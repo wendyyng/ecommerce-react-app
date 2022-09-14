@@ -7,12 +7,12 @@ const BUTTON_TYPE_CLASSES = {
 
 const Button = ({children, buttonType, ...otherProps}) => {
     return (
-        <buton 
+        <button 
         className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}` }
         {...otherProps}
         >
             {children}
-        </buton>
+        </button>
     )
 }
 
