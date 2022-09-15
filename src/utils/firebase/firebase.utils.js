@@ -4,10 +4,12 @@ import { getAuth,
     signInWithRedirect, 
     signInWithPopup, 
     GoogleAuthProvider,
-    FacebookAuthProvider,
+    // FacebookAuthProvider,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut
+    signOut,
+    onAuthStateChanged
+
  } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
@@ -77,3 +79,8 @@ const firebaseConfig = {
   }
 
   export const signOutUser = async () => await signOut(auth);
+
+  //call the callback when the state of auth singleton changes, eg. user signs in
+  export const onAuthStateChangedListener = (callback) => {
+    onAuthStateChanged(auth, callback)
+  }
