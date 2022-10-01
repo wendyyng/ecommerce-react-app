@@ -6,28 +6,21 @@ export const CategoriesContext = createContext({
     categoriesMap: [],
 });
 
-export const CategoriesProvider = ({children}) => {
-    const [categoriesMap, setCategoriesMap] = useState({});
+// export const CategoriesProvider = ({children}) => {
+    // const [categoriesMap, setCategoriesMap] = useState({});
 
-    //Run once to add collection to the firestore
-    // useEffect(() => {
-    //     addCollectionAndDocuments('categories', SHOP_DATA)
-    // }, [])
+    // //Run once to add collection to the firestore
+    // // useEffect(() => {
+    // //     addCollectionAndDocuments('categories', SHOP_DATA)
+    // // }, [])
 
-    useEffect(() => {
-        const getCategoriesMap = async() => {
-            const categoryMap = await getCategoriesAndDocuments()
-            // console.log(categoryMap)
-            setCategoriesMap(categoryMap)
-        }
-        getCategoriesMap();
-    }, [])
 
-    const value = {categoriesMap};
+
+    // const value = {categoriesMap};
     
-    return(
-        <CategoriesContext.Provider value={value}>
-            {children}
-        </CategoriesContext.Provider>
-    )
-}
+    // return(
+    //     <CategoriesContext.Provider value={value}>
+    //         {children}
+    //     </CategoriesContext.Provider>
+    // )
+// }
