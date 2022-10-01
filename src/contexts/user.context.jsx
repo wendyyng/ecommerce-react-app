@@ -9,38 +9,14 @@ export const UserContext = createContext({
     currentUser: null,
 })
 
-
-
 export const UserProvider = ({ children }) => {
     // const [currentUser, setCurrentUser] = useState(null)
     //state: current object stored by reducer, dispatch function: pass it an action object
-    const [{currentUser}, dispatch] = useReducer(userReducer, INITIAL_STATE);
-    console.log(currentUser)
+    // const [{currentUser}, dispatch] = useReducer(userReducer, INITIAL_STATE);
 
-    const setCurrentUser = (user) => {
-        dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user))
-        // dispatch({type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user})
-    }
-
-    const value = { currentUser, setCurrentUser };
-
-    //run once when component mounts
-    useEffect(() => {
-        //Centralize sign in and sign out into the listener callback
-        const unsubscribe = onAuthStateChangedListener((user) => {
-            //when the listener mounts, check the authentication state automatically when you
-            //initialize the listener
-            if (user){
-                createUserDocumentFromAuth(user);
-            }
-            //the user that passes through: either unauthenticated user object/ null (user signs out)
-            setCurrentUser(user);
-            console.log(user);
-        })
-        //Unsubscribe when it unmounts
-        return unsubscribe
-    }, []);
-    return <UserContext.Provider value={value}>{children}</UserContext.Provider>
+    // const value = { currentUser, setCurrentUser };
+ 
+    // return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }
 
 // const userReducer = (state, action) => {

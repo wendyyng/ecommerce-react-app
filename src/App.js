@@ -5,7 +5,31 @@ import Authentication from './routes/authentication/authentication.component'
 import Shop from './routes/shop/shop.component';
 import Checkout from './routes/checkout/checkout.component';
 
+import { useEffect} from 'react'
+import { onAuthStateChangedListener, createUserDocumentFromAuth } from './utils/firebase/firebase.utils'
+// import { createAction } from '../utils/reducer/reducer.utils'
+import { setCurrentUser } from './store/user/user.action'
+import { useDispatch } from 'react-redux'
+
 const App = () =>  {
+  const dispatch = useDispatch();
+
+     //run once when component mounts
+    useEffect(() => {
+        //Centralize sign in and sign out into the listener callback
+        const unsubscribe = onAuthStateChangedListener((user) => {
+            //when the listener mounts, check the authentication state automatically when you
+            //initialize the listener
+            if(user){
+                createUserDocumentFromAuth(user);
+            }
+            //the user that passes through: either unauthenticated user object/ null (user signs out)
+            dispatch(setCurrentUser(user));
+            console.log(user);
+        })
+        //Unsubscribe when it unmounts
+        return unsubscribe
+    }, []);
 
   return (
     <Routes>

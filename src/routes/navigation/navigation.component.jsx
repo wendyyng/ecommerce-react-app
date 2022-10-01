@@ -8,6 +8,7 @@ import { CartContext } from '../../contexts/cart.context'
 import {NavigationContainer, NavLink, NavLinks, LogoContainer} from './navigation.styles.jsx'
 import { signOutUser } from '../../utils/firebase/firebase.utils'
 
+
 const Navigation = () => {
   //Need current user to show sign in/sign out link
   const { currentUser } = useContext(UserContext)
