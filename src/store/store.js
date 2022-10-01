@@ -6,7 +6,8 @@ import { rootReducer } from './root.reducer'
 
 const middleWares = [logger];
 
-//Middlewares
+//Library helpers run before an action hits the reducers
+//compose is used to pass multiple functions
 const composedEnhancers = compose(applyMiddleware(...middleWares));
 
 export const store = createStore(rootReducer, undefined, composedEnhancers)

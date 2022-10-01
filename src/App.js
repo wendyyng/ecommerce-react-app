@@ -12,6 +12,7 @@ import { setCurrentUser } from './store/user/user.action'
 import { useDispatch } from 'react-redux'
 
 const App = () =>  {
+  //dispatch doesn't get updated/changed, only one dispatch in redux
   const dispatch = useDispatch();
 
      //run once when component mounts
