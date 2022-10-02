@@ -56,7 +56,7 @@ const firebaseConfig = {
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
+    return querySnapshot.docs.map((doc) => doc.data());
     //arr of indivicual elements inside
     // const categoryMap = querySnapshot.docs
     // .reduce((acc, docSnapshot) => {

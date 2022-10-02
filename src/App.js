@@ -29,8 +29,8 @@ const App = () =>  {
             console.log(user);
         })
         //Unsubscribe when it unmounts
-        return unsubscribe
-    }, []);
+        return unsubscribe;
+    }, [dispatch]);
 
   return (
     <Routes>
