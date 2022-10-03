@@ -10,7 +10,7 @@ import { signOutUser } from '../../utils/firebase/firebase.utils'
 //allows component to interact with redux store
 import { useSelector } from 'react-redux'
 import { selectCurrentUser } from '../../store/user/user.selector'
-import { selectIsCartOpen } from '../../store/cart/cart.selector'
+import {  selectIsCartOpen } from '../../store/cart/cart.selector'
 
 const Navigation = () => {
   //Need current user to show sign in/sign out link
