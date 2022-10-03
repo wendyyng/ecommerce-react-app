@@ -12,9 +12,9 @@ const Category = () => {
     // const products = categoriesMap[category];
     //categoriesMap is an empty object by default
     const [products, setProducts] = useState(categoriesMap[category]);
-    console.log('reder/re-rendring component')
+    // console.log('reder/re-rendring component')
     useEffect(() => {
-        console.log('effect fired calling setProducts')
+        // console.log('effect fired calling setProducts')
         setProducts(categoriesMap[category]);
     }, [category, categoriesMap])
 
